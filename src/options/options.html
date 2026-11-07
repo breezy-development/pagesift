@@ -1,0 +1,70 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PageSift settings</title>
+    <link rel="stylesheet" href="ui.css" />
+    <link rel="stylesheet" href="options.css" />
+  </head>
+  <body>
+    <div class="wrap">
+      <header class="head">
+        <img src="icons/icon48.png" width="40" height="40" alt="" />
+        <div>
+          <h1>PageSift settings</h1>
+          <p class="muted">Bring your own AI key. No account, no PageSift server.</p>
+        </div>
+      </header>
+
+      <form id="form">
+        <section class="box">
+          <h2>1. AI provider</h2>
+          <div id="providers" class="providers" role="radiogroup" aria-label="Provider"></div>
+        </section>
+
+        <section class="box">
+          <h2>2. API key</h2>
+          <label class="field">
+            <span id="key-label">API key</span>
+            <div class="row">
+              <input id="key" type="password" autocomplete="off" spellcheck="false" placeholder="sk-…" />
+              <button id="toggle-key" class="btn" type="button">Show</button>
+            </div>
+          </label>
+          <p class="muted small">
+            <a id="key-link" href="#" target="_blank" rel="noopener noreferrer">Get a key</a>.
+            Stored only in this browser (<code>chrome.storage.local</code>, not synced) and sent only to the provider you picked.
+          </p>
+          <label class="field">
+            <span>Model</span>
+            <input id="model" type="text" spellcheck="false" />
+          </label>
+          <p class="muted small">Leave blank for the default. Any chat model your account can use will work; small, cheap models are usually enough.</p>
+        </section>
+
+        <section class="box">
+          <h2>3. Page reading</h2>
+          <label class="field">
+            <span>Max characters sent per request</span>
+            <input id="max-chars" type="number" min="2000" max="120000" step="1000" />
+          </label>
+          <label class="check"><input id="include-links" type="checkbox" /> Include the page's links (needed for URL columns)</label>
+        </section>
+
+        <div class="footer-row">
+          <button id="save" class="btn primary" type="submit">Save</button>
+          <button id="test" class="btn" type="button">Test key</button>
+          <span id="msg" class="msg" role="status"></span>
+        </div>
+      </form>
+
+      <section class="box privacy">
+        <h2>Privacy</h2>
+        <p>PageSift reads a page only when you click <b>Extract</b> or <b>Summarize</b>. The page text goes straight from your browser to the AI provider you picked, under your own account. There is no PageSift server, no analytics, and no tracking. <a href="privacy.html" target="_blank">Full privacy policy</a>.</p>
+        <button id="wipe" class="btn" type="button">Delete all PageSift data</button>
+      </section>
+    </div>
+    <script type="module" src="options.js"></script>
+  </body>
+</html>

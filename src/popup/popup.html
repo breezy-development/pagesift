@@ -1,0 +1,103 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width" />
+    <title>PageSift</title>
+    <link rel="stylesheet" href="ui.css" />
+    <link rel="stylesheet" href="popup.css" />
+  </head>
+  <body class="popup">
+    <header class="bar">
+      <img src="icons/icon32.png" width="22" height="22" alt="" />
+      <strong>PageSift</strong>
+      <span class="spacer"></span>
+      <button id="open-settings" class="icon-btn" type="button" title="Settings" aria-label="Settings">
+        <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M19.4 13a7.6 7.6 0 0 0 0-2l2-1.6-2-3.4-2.4 1a7.4 7.4 0 0 0-1.7-1L15 3.5h-4l-.4 2.5a7.4 7.4 0 0 0-1.7 1l-2.4-1-2 3.4 2 1.6a7.6 7.6 0 0 0 0 2l-2 1.6 2 3.4 2.4-1a7.4 7.4 0 0 0 1.7 1l.4 2.5h4l.4-2.5a7.4 7.4 0 0 0 1.7-1l2.4 1 2-3.4zM13 15.5a3.5 3.5 0 1 1 0-7 3.5 3.5 0 0 1 0 7z" transform="translate(-1 0)"/></svg>
+      </button>
+    </header>
+
+    <section class="page-card">
+      <div id="page-host" class="host">—</div>
+      <div id="page-title" class="title">Loading…</div>
+    </section>
+
+    <section id="setup" class="card setup" hidden>
+      <h2>Connect an AI provider</h2>
+      <p>PageSift uses <b>your own</b> API key (OpenAI, Anthropic or OpenRouter). It stays on this device and is sent only to the provider you pick.</p>
+      <button id="setup-btn" class="btn primary" type="button">Add API key</button>
+    </section>
+
+    <section id="restricted" class="card notice" hidden>
+      Chrome doesn't let extensions read this page (browser pages and the Web Store). Open a regular website and try again.
+    </section>
+
+    <main id="main" hidden>
+      <div class="tabs" role="tablist">
+        <button id="tab-extract" role="tab" aria-selected="true" type="button">Extract table</button>
+        <button id="tab-summary" role="tab" aria-selected="false" type="button">Summarize</button>
+      </div>
+
+      <form id="extract-panel" class="panel">
+        <div class="row2">
+          <label class="field">
+            <span>Preset</span>
+            <select id="preset"></select>
+          </label>
+          <label class="field">
+            <span>Columns</span>
+            <input id="columns" type="text" autocomplete="off" spellcheck="false" placeholder="e.g. Name, Price, URL (blank = AI picks)" />
+          </label>
+        </div>
+        <details id="more">
+          <summary>Extra instructions</summary>
+          <textarea id="instructions" rows="2" placeholder="e.g. Only items in stock. Prices as numbers."></textarea>
+        </details>
+        <button id="run-extract" class="btn primary wide" type="submit">Extract to table</button>
+      </form>
+
+      <form id="summary-panel" class="panel" hidden>
+        <div class="seg" id="styles" role="radiogroup" aria-label="Summary style"></div>
+        <button id="run-summary" class="btn primary wide" type="submit">Summarize page</button>
+      </form>
+
+      <p id="tip" class="tip">Tip: select part of the page first to use only that part.</p>
+
+      <div id="status" class="status" hidden>
+        <span class="spinner" aria-hidden="true"></span>
+        <span id="status-text">Working…</span>
+        <span class="spacer"></span>
+        <button id="cancel" class="btn ghost small" type="button">Cancel</button>
+      </div>
+
+      <div id="error" class="error" role="alert" hidden>
+        <span id="error-text"></span>
+        <button id="error-action" class="btn small" type="button" hidden></button>
+      </div>
+
+      <section id="result" hidden>
+        <div class="result-head">
+          <strong id="result-title"></strong>
+          <span id="result-meta" class="muted"></span>
+        </div>
+        <div id="table-wrap" class="table-wrap" hidden><table id="table"></table></div>
+        <div id="summary-out" class="summary-out" hidden></div>
+        <div id="warn" class="warn" hidden></div>
+        <div class="actions" id="table-actions" hidden>
+          <button id="dl-csv" class="btn primary" type="button">Download CSV</button>
+          <button id="copy-tsv" class="btn" type="button">Copy for Sheets</button>
+          <button id="copy-json" class="btn" type="button">Copy JSON</button>
+        </div>
+        <div class="actions" id="summary-actions" hidden>
+          <button id="copy-summary" class="btn primary" type="button">Copy</button>
+        </div>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <span id="model-line" class="muted"></span>
+    </footer>
+
+    <script type="module" src="popup.js"></script>
+  </body>
+</html>

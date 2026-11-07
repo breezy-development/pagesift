@@ -1,0 +1,29 @@
+{
+  "name": "pagesift",
+  "version": "1.0.0",
+  "description": "PageSift: Chrome extension (Manifest V3) that turns any web page into a CSV table or a summary with your own AI API key",
+  "private": true,
+  "type": "module",
+  "license": "MIT",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "typecheck": "tsc --noEmit",
+    "test": "node --test \"tests/**/*.test.ts\"",
+    "check": "npm run typecheck && npm test && npm run build",
+    "package": "npm run check && node scripts/package.mjs",
+    "watch": "node scripts/build.mjs --watch",
+    "smoke": "node scripts/smoke.mjs",
+    "screenshots": "npm run build && node scripts/demo.mjs && .venv/bin/python scripts/screenshots.py",
+    "icons": ".venv/bin/python scripts/make_icons.py"
+  },
+  "engines": {
+    "node": ">=22.18"
+  },
+  "devDependencies": {
+    "@types/chrome": "0.3.7",
+    "@types/node": "26.6.6",
+    "esbuild": "0.28.2",
+    "puppeteer-core": "25.16.0",
+    "typescript": "7.0.2"
+  }
+}

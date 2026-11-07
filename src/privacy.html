@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>PageSift privacy policy</title>
+    <style>
+      :root { color-scheme: light dark; font: 15px/1.6 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
+      body { max-width: 720px; margin: 0 auto; padding: 32px 20px 64px; }
+      h1 { font-size: 26px; margin-bottom: 4px; }
+      h2 { font-size: 17px; margin-top: 28px; }
+      .muted { opacity: 0.7; }
+      table { border-collapse: collapse; width: 100%; font-size: 14px; }
+      th, td { text-align: left; border-bottom: 1px solid #8884; padding: 6px 8px; vertical-align: top; }
+      code { font-size: 13px; }
+    </style>
+  </head>
+  <body>
+    <h1>PageSift privacy policy</h1>
+    <p class="muted">Effective November 7, 2026. Applies to the PageSift Chrome extension.</p>
+
+    <p><b>Short version:</b> PageSift has no server. It doesn't collect, sell or share your data. When you click
+      <b>Extract</b> or <b>Summarize</b>, the text of the current page is sent directly from your browser to the AI
+      provider you chose (OpenAI, Anthropic or OpenRouter), using your own API key.</p>
+
+    <h2>What PageSift handles</h2>
+    <table>
+      <tr><th>Data</th><th>Where it goes</th><th>How long</th></tr>
+      <tr>
+        <td>Your API key, chosen provider, model and settings</td>
+        <td>Saved in your browser with <code>chrome.storage.local</code>. Not synced to your Google account. The key is sent only to the provider it belongs to.</td>
+        <td>Until you change it, click <i>Delete all PageSift data</i>, or remove the extension.</td>
+      </tr>
+      <tr>
+        <td>Text and links of the page you're on (or just your selection)</td>
+        <td>Read only when you click a button, and sent once to your chosen AI provider to produce the table or summary.</td>
+        <td>PageSift keeps nothing after it shows the result. The provider's own retention policy applies (see below).</td>
+      </tr>
+      <tr>
+        <td>The last result for each tab</td>
+        <td><code>chrome.storage.session</code>, in memory, so the result is still there if the popup closes.</td>
+        <td>Cleared when the tab closes or the browser quits.</td>
+      </tr>
+      <tr>
+        <td>Your last column list and instructions</td>
+        <td><code>chrome.storage.local</code> in your browser.</td>
+        <td>Until changed or deleted.</td>
+      </tr>
+    </table>
+
+    <h2>What PageSift does not do</h2>
+    <ul>
+      <li>No PageSift server, account, analytics, telemetry, ads or tracking pixels.</li>
+      <li>It doesn't read pages in the background or keep a browsing history. It can only see a tab after you click
+        the toolbar icon (Chrome's <code>activeTab</code> permission).</li>
+      <li>It doesn't sell or transfer data to third parties, or use it for advertising, credit decisions or any purpose
+        unrelated to producing the result you asked for.</li>
+      <li>It doesn't load remote code. All code ships inside the extension.</li>
+    </ul>
+
+    <h2>Your AI provider</h2>
+    <p>Page content you send is processed by the provider you selected, under your own account and its terms:
+      <a href="https://openai.com/policies/privacy-policy/">OpenAI</a>,
+      <a href="https://www.anthropic.com/legal/privacy">Anthropic</a> or
+      <a href="https://openrouter.ai/privacy">OpenRouter</a>. Don't run PageSift on pages with information you aren't
+      allowed to share with that provider.</p>
+
+    <h2>Permissions</h2>
+    <ul>
+      <li><code>activeTab</code> and <code>scripting</code>: read the current page's text, only after you click.</li>
+      <li><code>storage</code>: save your settings and key in your browser.</li>
+      <li>Optional access to <code>api.openai.com</code>, <code>api.anthropic.com</code> or <code>openrouter.ai</code>:
+        requested only for the provider you pick, so PageSift can send it requests.</li>
+    </ul>
+
+    <h2>Deleting your data</h2>
+    <p>Open PageSift settings and click <i>Delete all PageSift data</i>, or remove the extension. Both erase everything
+      PageSift stored.</p>
+
+    <h2>Changes and contact</h2>
+    <p>If this policy changes, the new version will be published here with a new effective date. Questions: use the
+      support link on PageSift's Chrome Web Store page.</p>
+  </body>
+</html>

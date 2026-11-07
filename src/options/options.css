@@ -1,0 +1,27 @@
+body { background: var(--panel); font-size: 14px; }
+.wrap { max-width: 680px; margin: 0 auto; padding: 32px 20px 48px; }
+.head { display: flex; gap: 14px; align-items: center; margin-bottom: 20px; }
+.head h1 { margin: 0; font-size: 22px; }
+.head p { margin: 2px 0 0; }
+.box { background: var(--bg); border: 1px solid var(--line); border-radius: 12px; padding: 18px 20px; margin-bottom: 14px; }
+.box h2 { margin: 0 0 12px; font-size: 15px; }
+.small { font-size: 12.5px; margin: -2px 0 12px; }
+.row { display: flex; gap: 8px; }
+.row input { flex: 1; }
+code { font-size: 12px; background: var(--panel); padding: 1px 4px; border-radius: 4px; }
+a { color: var(--brand); }
+
+.providers { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.providers label { border: 1px solid var(--line); border-radius: 10px; padding: 12px; cursor: pointer; display: block; }
+.providers label:has(input:checked) { border-color: var(--brand); background: var(--brand-soft); }
+.providers input { position: absolute; opacity: 0; pointer-events: none; }
+.providers b { display: block; margin-bottom: 2px; }
+.providers small { color: var(--muted); }
+.providers .dot { display: inline-block; width: 7px; height: 7px; border-radius: 50%; background: var(--ok); margin-right: 4px; vertical-align: 1px; }
+
+.check { display: flex; gap: 8px; align-items: center; }
+.footer-row { display: flex; gap: 8px; align-items: center; margin: 4px 0 18px; }
+.msg { font-weight: 600; }
+.msg.ok { color: var(--ok); }
+.msg.err { color: var(--err); }
+.privacy p { margin: 0 0 12px; color: var(--muted); }

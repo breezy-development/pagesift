@@ -1,0 +1,71 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Headlamps &amp; Lanterns | Ridgeline Supply Co.</title>
+    <style>
+      body { margin: 0; font: 14px/1.4 system-ui, sans-serif; color: #222; background: #fafaf7; }
+      header { display: flex; align-items: center; gap: 28px; padding: 14px 28px; background: #1f3a2e; color: #fff; }
+      header b { font-size: 18px; letter-spacing: 0.5px; }
+      header nav a { color: #d8e8dc; text-decoration: none; margin-right: 18px; }
+      header input { margin-left: auto; padding: 7px 10px; border-radius: 6px; border: 0; width: 220px; }
+      .crumbs { padding: 12px 28px 0; color: #777; font-size: 12px; }
+      .wrap { display: flex; gap: 24px; padding: 8px 28px 40px; }
+      aside { width: 170px; flex: none; font-size: 13px; }
+      aside h4 { margin: 14px 0 6px; }
+      aside label { display: block; color: #555; margin: 3px 0; }
+      main { flex: 1; }
+      h1 { margin: 6px 0 4px; font-size: 24px; }
+      .count { color: #777; margin-bottom: 14px; }
+      .grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 16px; }
+      .card { background: #fff; border: 1px solid #e6e4dc; border-radius: 10px; padding: 12px; }
+      .img { height: 96px; border-radius: 8px; background: linear-gradient(135deg, #e9efe6, #d5e0d2); margin-bottom: 8px; position: relative; }
+      .img::after { content: ""; position: absolute; left: 50%; top: 50%; width: 40px; height: 40px; margin: -20px; border-radius: 50%; background: radial-gradient(circle, #fff7c2 0 35%, #f2c94c 36% 55%, #1f3a2e 56% 100%); box-shadow: 0 0 0 6px #ffffff88; }
+      .card a { color: #1f3a2e; font-weight: 600; text-decoration: none; display: block; min-height: 38px; }
+      .stars { color: #e0a100; font-size: 12px; margin: 4px 0; }
+      .stars span { color: #777; }
+      .price { font-weight: 700; font-size: 16px; }
+      .price s { color: #999; font-weight: 400; font-size: 13px; margin-left: 4px; }
+      .sale { background: #c0392b; color: #fff; font-size: 10px; padding: 1px 6px; border-radius: 4px; margin-left: 6px; vertical-align: 2px; }
+      button { margin-top: 8px; width: 100%; padding: 6px; border: 1px solid #1f3a2e; background: #fff; color: #1f3a2e; border-radius: 6px; font-weight: 600; }
+      footer { padding: 20px 28px; color: #888; font-size: 12px; border-top: 1px solid #e6e4dc; }
+    </style>
+  </head>
+  <body>
+    <header>
+      <b>RIDGELINE SUPPLY CO.</b>
+      <nav><a href="https://ridgeline-supply.example/camp">Camp</a><a href="https://ridgeline-supply.example/hike">Hike</a><a href="https://ridgeline-supply.example/lighting">Lighting</a><a href="https://ridgeline-supply.example/sale">Sale</a></nav>
+      <input placeholder="Search gear" />
+    </header>
+    <div class="crumbs">Home / Lighting / Headlamps &amp; Lanterns</div>
+    <div class="wrap">
+      <aside>
+        <h4>Type</h4>
+        <label><input type="checkbox" checked /> Headlamps</label>
+        <label><input type="checkbox" checked /> Lanterns</label>
+        <label><input type="checkbox" /> Flashlights</label>
+        <h4>Power</h4>
+        <label><input type="checkbox" /> Rechargeable</label>
+        <label><input type="checkbox" /> Solar</label>
+        <label><input type="checkbox" /> AAA</label>
+        <h4>Rating</h4>
+        <label><input type="checkbox" /> 4★ &amp; up</label>
+      </aside>
+      <main>
+        <h1>Headlamps &amp; Lanterns</h1>
+        <div class="count">8 products · Sorted by: Best selling</div>
+        <div class="grid">
+          <div class="card"><div class="img"></div><a href="https://ridgeline-supply.example/p/summit-400-headlamp">Summit 400 Rechargeable Headlamp</a><div class="stars">★★★★★ <span>4.7 (1,284)</span></div><div class="price">$39.95</div><button>Add to cart</button></div>
+          <div class="card"><div class="img"></div><a href="https://ridgeline-supply.example/p/trailblazer-mini">Trailblazer Mini Headlamp</a><div class="stars">★★★★☆ <span>4.4 (612)</span></div><div class="price">$19.99 <s>$24.99</s><span class="sale">SALE</span></div><button>Add to cart</button></div>
+          <div class="card"><div class="img"></div><a href="https://ridgeline-supply.example/p/basecamp-lantern-1000">Basecamp Lantern 1000</a><div class="stars">★★★★★ <span>4.8 (2,031)</span></div><div class="price">$54.00</div><button>Add to cart</button></div>
+          <div class="card"><div class="img"></div><a href="https://ridgeline-supply.example/p/pocket-light-2-pack">Glow Pocket Light (2-pack)</a><div class="stars">★★★★☆ <span>4.1 (318)</span></div><div class="price">$12.50</div><button>Add to cart</button></div>
+          <div class="card"><div class="img"></div><a href="https://ridgeline-supply.example/p/nightowl-red-light">NightOwl Red-Light Headlamp</a><div class="stars">★★★★★ <span>4.6 (947)</span></div><div class="price">$29.00</div><button>Add to cart</button></div>
+          <div class="card"><div class="img"></div><a href="https://ridgeline-supply.example/p/solar-lantern">Ridgeline Solar Lantern</a><div class="stars">★★★★☆ <span>4.3 (505)</span></div><div class="price">$44.95 <s>$59.95</s><span class="sale">SALE</span></div><button>Add to cart</button></div>
+          <div class="card"><div class="img"></div><a href="https://ridgeline-supply.example/p/ultralight-200">Ultralight 200 Headlamp</a><div class="stars">★★★★☆ <span>4.5 (1,102)</span></div><div class="price">$24.95</div><button>Add to cart</button></div>
+          <div class="card"><div class="img"></div><a href="https://ridgeline-supply.example/p/storm-floodlight-2000">Storm Floodlight 2000</a><div class="stars">★★★★★ <span>4.9 (276)</span></div><div class="price">$89.00</div><button>Add to cart</button></div>
+        </div>
+      </main>
+    </div>
+    <footer>© 2026 Ridgeline Supply Co. (fictional store for this demo) · <a href="https://ridgeline-supply.example/shipping">Shipping</a> · <a href="https://ridgeline-supply.example/returns">Returns</a></footer>
+  </body>
+</html>

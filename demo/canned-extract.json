@@ -1,0 +1,12 @@
+{
+  "rows": [
+    { "name": "Summit 400 Rechargeable Headlamp", "price": "$39.95", "rating": "4.7", "reviews": "1,284", "url": "https://ridgeline-supply.example/p/summit-400-headlamp" },
+    { "name": "Trailblazer Mini Headlamp", "price": "$19.99", "rating": "4.4", "reviews": "612", "url": "https://ridgeline-supply.example/p/trailblazer-mini" },
+    { "name": "Basecamp Lantern 1000", "price": "$54.00", "rating": "4.8", "reviews": "2,031", "url": "https://ridgeline-supply.example/p/basecamp-lantern-1000" },
+    { "name": "Glow Pocket Light (2-pack)", "price": "$12.50", "rating": "4.1", "reviews": "318", "url": "https://ridgeline-supply.example/p/pocket-light-2-pack" },
+    { "name": "NightOwl Red-Light Headlamp", "price": "$29.00", "rating": "4.6", "reviews": "947", "url": "https://ridgeline-supply.example/p/nightowl-red-light" },
+    { "name": "Ridgeline Solar Lantern", "price": "$44.95", "rating": "4.3", "reviews": "505", "url": "https://ridgeline-supply.example/p/solar-lantern" },
+    { "name": "Ultralight 200 Headlamp", "price": "$24.95", "rating": "4.5", "reviews": "1,102", "url": "https://ridgeline-supply.example/p/ultralight-200" },
+    { "name": "Storm Floodlight 2000", "price": "$89.00", "rating": "4.9", "reviews": "276", "url": "https://ridgeline-supply.example/p/storm-floodlight-2000" }
+  ]
+}

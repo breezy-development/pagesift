@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>PageSift scene</title>
+    <style>
+      html, body { margin: 0; width: 1280px; height: 800px; overflow: hidden; }
+      body { font: 14px system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; background: linear-gradient(135deg, #6d5cff 0%, #4a37d8 60%, #3a2bb0 100%); position: relative; }
+      .cap { position: absolute; left: 60px; top: 26px; color: #fff; }
+      .cap h1 { margin: 0; font-size: 30px; letter-spacing: -0.3px; }
+      .cap p { margin: 4px 0 0; font-size: 15px; opacity: 0.85; }
+      .win { position: absolute; left: 60px; right: 60px; top: 118px; bottom: -14px; background: #fff; border-radius: 12px 12px 0 0; box-shadow: 0 20px 60px rgb(0 0 0 / 0.35); overflow: hidden; }
+      .tabs { height: 36px; background: #dee1e6; display: flex; align-items: flex-end; padding-left: 70px; position: relative; }
+      .dots { position: absolute; left: 14px; top: 13px; display: flex; gap: 7px; }
+      .dots i { width: 11px; height: 11px; border-radius: 50%; background: #ff5f57; }
+      .dots i:nth-child(2) { background: #febc2e; } .dots i:nth-child(3) { background: #28c840; }
+      .tab { background: #fff; height: 29px; width: 250px; border-radius: 8px 8px 0 0; padding: 0 12px; display: flex; align-items: center; font-size: 12px; color: #333; white-space: nowrap; overflow: hidden; }
+      .bar { height: 40px; display: flex; align-items: center; gap: 10px; padding: 0 10px; border-bottom: 1px solid #dadce0; }
+      .nav { color: #888; font-size: 16px; letter-spacing: 10px; }
+      .url { flex: 1; height: 28px; border-radius: 14px; background: #f1f3f4; display: flex; align-items: center; padding: 0 14px; color: #333; font-size: 13px; }
+      .url b { color: #888; font-weight: 400; }
+      .ext { width: 28px; height: 28px; border-radius: 50%; display: grid; place-items: center; background: #e8e6ff; }
+      .ext img { width: 18px; height: 18px; }
+      .pin { width: 28px; height: 28px; display: grid; place-items: center; color: #777; }
+      #page { position: absolute; left: 0; right: 0; top: 77px; bottom: 0; width: 100%; height: calc(100% - 77px); border: 0; }
+      #popup { position: absolute; top: 72px; right: 52px; width: 440px; height: 560px; border: 0; border-radius: 10px; background: #fff; box-shadow: 0 10px 34px rgb(0 0 0 / 0.30), 0 0 0 1px rgb(0 0 0 / 0.08); }
+      .full #page { top: 77px; }
+    </style>
+  </head>
+  <body>
+    <div class="cap"><h1 id="h"></h1><p id="sub"></p></div>
+    <div class="win">
+      <div class="tabs"><div class="dots"><i></i><i></i><i></i></div><div class="tab" id="tab"></div></div>
+      <div class="bar">
+        <span class="nav">‹ › ↻</span>
+        <div class="url" id="url"></div>
+        <div class="ext"><img src="icons/icon32.png" alt="" /></div>
+        <div class="pin">⋮</div>
+      </div>
+      <iframe id="page" title="page"></iframe>
+      <iframe id="popup" title="PageSift popup" hidden></iframe>
+    </div>
+    <script>
+      const SCENES = {
+        extract: {
+          h: "Turn any page into a spreadsheet",
+          sub: "Name the columns you want. AI fills the rows. Download CSV or paste into Sheets.",
+          page: "shop.html",
+          url: "https://ridgeline-supply.example/lighting/headlamps",
+          title: "Headlamps & Lanterns | Ridgeline Supply Co.",
+          popup: "popup.html?autorun=extract&preset=products",
+        },
+        summary: {
+          h: "Or get the gist in seconds",
+          sub: "Key points, a TL;DR, or the action items from any article.",
+          page: "article.html",
+          url: "https://journal.ridgeline-supply.example/winter-headlamps",
+          title: "How to choose a headlamp for winter hiking | Ridgeline Journal",
+          popup: "popup.html?autorun=summary&mode=summary&style=bullets",
+        },
+        settings: {
+          h: "Your key, your provider, your data",
+          sub: "Works with OpenAI, Anthropic or OpenRouter. No account, no PageSift server.",
+          page: "options.html",
+          url: "chrome-extension://pagesift/options.html",
+          title: "PageSift settings",
+        },
+      };
+      const s = SCENES[new URLSearchParams(location.search).get("kind") || "extract"];
+      document.getElementById("h").textContent = s.h;
+      document.getElementById("sub").textContent = s.sub;
+      document.getElementById("tab").textContent = s.title;
+      const u = new URL(s.url);
+      document.getElementById("url").innerHTML = "";
+      document.getElementById("url").append(u.host, Object.assign(document.createElement("b"), { textContent: u.pathname }));
+      document.getElementById("page").src = s.page;
+      if (s.popup) {
+        const popup = document.getElementById("popup");
+        const q = new URLSearchParams({ pageUrl: s.url, pageTitle: s.title });
+        popup.src = `${s.popup}&${q}`;
+        popup.hidden = false;
+        setInterval(() => {
+          const doc = popup.contentDocument;
+          if (!doc || !doc.body) return;
+          document.body.dataset.popupHeight = doc.body.scrollHeight;
+          popup.style.height = Math.min(600, doc.body.scrollHeight) + "px";
+        }, 50);
+      }
+    </script>
+  </body>
+</html>
