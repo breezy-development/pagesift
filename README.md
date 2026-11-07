@@ -137,7 +137,9 @@ append, and a hosted key so non-technical users don't need an API account.
 
 ## Publishing
 
-PageSift is being published on the Chrome Web Store as an **Unlisted** item by Breezy Development.
+PageSift has been submitted to the Chrome Web Store as an **Unlisted** item by Breezy Development
+(item ID `mdjaopdbekcaigfgeifjfhhlfliapeec`, **pending review** since 2026-11-07). Once approved it
+will be at <https://chromewebstore.google.com/detail/mdjaopdbekcaigfgeifjfhhlfliapeec>.
 Everything the upload needs is in [`store-submission/`](store-submission/): the zip
 (`npm run package` refreshes it), icon, screenshots, promo tile, listing copy and privacy answers
 ([`listing.md`](store-submission/listing.md)), and a step-by-step dashboard checklist
