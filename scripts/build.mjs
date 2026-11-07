@@ -20,6 +20,8 @@ const STATIC = [
 
 function copyStatic() {
   for (const file of STATIC) cpSync(join(src, file), join(out, file.split("/").pop()));
+  // GitHub Pages serves docs/ at https://breezy-development.github.io/pagesift/ (the store's privacy URL).
+  cpSync(join(src, "privacy.html"), join(root, "docs", "privacy.html"));
   cpSync(join(src, "icons"), join(out, "icons"), { recursive: true });
   const manifest = JSON.parse(readFileSync(join(src, "manifest.json"), "utf8"));
   manifest.version = version;

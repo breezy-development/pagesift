@@ -40,6 +40,14 @@ test("every icon exists and every page the build copies is present", () => {
   }
 });
 
+test("hosted privacy policy (docs/, GitHub Pages) matches the one shipped in the extension", () => {
+  assert.equal(
+    readFileSync(join(root, "docs/privacy.html"), "utf8"),
+    readFileSync(join(root, "src/privacy.html"), "utf8"),
+    "run npm run build to refresh docs/privacy.html",
+  );
+});
+
 test("HTML pages load only local scripts and no inline scripts", () => {
   for (const f of ["popup/popup.html", "options/options.html", "privacy.html"]) {
     const html = readFileSync(join(root, "src", f), "utf8");

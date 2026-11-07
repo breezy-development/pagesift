@@ -5,6 +5,7 @@
   "version": "0.0.0",
   "description": "Turn any web page into a clean CSV table or a short summary with AI, using your own OpenAI, Anthropic or OpenRouter key.",
   "minimum_chrome_version": "116",
+  "homepage_url": "https://github.com/breezy-development/pagesift",
   "action": {
     "default_title": "PageSift: extract this page",
     "default_popup": "popup.html",
