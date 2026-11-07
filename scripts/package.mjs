@@ -65,5 +65,9 @@ end.writeUInt32LE(offset, 16);
 
 mkdirSync(join(root, "dist"), { recursive: true });
 const out = join(root, "dist", `pagesift-${version}.zip`);
-writeFileSync(out, Buffer.concat([...local, ...central, end]));
+const zip = Buffer.concat([...local, ...central, end]);
+writeFileSync(out, zip);
 console.log(`wrote ${relative(root, out)} (${central.length / 2} files)`);
+const upload = join(root, "store-submission", `pagesift-${version}.zip`);
+writeFileSync(upload, zip);
+console.log(`wrote ${relative(root, upload)} (the file to upload)`);

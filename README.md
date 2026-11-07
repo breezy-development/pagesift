@@ -6,7 +6,7 @@ A Manifest V3 Chrome extension that turns the page you're looking at into a **cl
 (you name the columns, AI fills the rows) or a **short summary**, using **your own** OpenAI,
 Anthropic or OpenRouter API key. No account, no backend, no keys bundled.
 
-![PageSift extracting a product list into a table](store/screenshot-1-extract.png)
+![PageSift extracting a product list into a table](store-submission/screenshot-1-extract.png)
 
 **Why this idea:** "page → spreadsheet" is the most common request behind Chrome-extension and scraper gigs, and it
 exercises every part buyers pay for: MV3 service worker, `activeTab` page access, a structured-output AI call and file export.
@@ -31,7 +31,7 @@ It's also useful on its own with zero running cost (bring-your-own key), so it c
 
 | Summarize | Settings (bring your own key) |
 |---|---|
-| ![Summary](store/screenshot-2-summary.png) | ![Settings](store/screenshot-3-settings.png) |
+| ![Summary](store-submission/screenshot-2-summary.png) | ![Settings](store-submission/screenshot-3-settings.png) |
 
 The exported CSV from the first screenshot ([`docs/sample-export.csv`](docs/sample-export.csv), produced by the shipped `toTable`/`toCSV` code):
 
@@ -47,9 +47,11 @@ The exported CSV from the first screenshot ([`docs/sample-export.csv`](docs/samp
 | Optional: `api.openai.com`, `api.anthropic.com`, `openrouter.ai` | Requested at runtime **only for the provider you pick** (extension pages need it to call the API). Nothing at install. |
 
 There's no PageSift server, no analytics and no remote code (`script-src 'self'`). The page text goes
-from your browser straight to the provider you chose. Full policy: [`src/privacy.html`](src/privacy.html)
-(also shipped inside the extension). "Delete all PageSift data" in Settings wipes storage and
-revokes the API permission.
+from your browser straight to the provider you chose. Full policy:
+**<https://breezy-development.github.io/pagesift/privacy.html>** (source: [`src/privacy.html`](src/privacy.html),
+also shipped inside the extension; the build copies it to `docs/`, which GitHub Pages serves).
+"Delete all PageSift data" in Settings wipes storage and revokes the API permission.
+Questions: [open an issue](https://github.com/breezy-development/pagesift/issues).
 
 ## Install (unpacked)
 
@@ -96,12 +98,12 @@ npm run watch         # rebuild on change
 npm run screenshots   # store screenshots (needs .venv with Pillow; uses a temporary Chrome profile)
 ```
 
-Test run (Node 24, 56 tests):
+Test run (Node 24, 57 tests):
 
 ```
-ℹ tests 56
+ℹ tests 57
 ℹ suites 0
-ℹ pass 56
+ℹ pass 57
 ℹ fail 0
 ```
 
@@ -120,7 +122,7 @@ src/
     columns.ts settings.ts plan.ts text.ts
 tests/                 unit tests (fake fetch for all three providers) + manifest policy checks
 demo/                  fictional pages, chrome.* stub and canned replies for screenshots
-store/                 listing copy, store icon, 1280×800 screenshots, promo tile
+store-submission/      Web Store upload pack: zip, listing copy, icon, screenshots, promo tile, checklist
 scripts/               build, package (dependency-free zip), smoke, screenshots, icons
 ```
 
@@ -133,24 +135,17 @@ Free stays fully useful with your own key. Pro candidates: saved extraction temp
 multi-page runs (follow "next" links), scheduled re-extraction with change alerts, Google Sheets
 append, and a hosted key so non-technical users don't need an API account.
 
-## Publishing checklist (not done; owner decision)
+## Publishing
 
-Nothing has been published or submitted. To ship it:
+PageSift is being published on the Chrome Web Store as an **Unlisted** item by Breezy Development.
+Everything the upload needs is in [`store-submission/`](store-submission/): the zip
+(`npm run package` refreshes it), icon, screenshots, promo tile, listing copy and privacy answers
+([`listing.md`](store-submission/listing.md)), and a step-by-step dashboard checklist
+([`CHECKLIST.md`](store-submission/CHECKLIST.md)). The privacy policy is live at
+<https://breezy-development.github.io/pagesift/privacy.html>.
 
-1. **Chrome Web Store developer account**: one-time **US$5** registration fee, a Google account with
-   2-step verification, and a verified contact email. Decide whether to publish as an individual or
-   as Breezy Development, and complete the **trader / non-trader** declaration (EU Digital Services Act).
-2. **Host the privacy policy** at a public URL (e.g. GitHub Pages, or a page on the Breezy site),
-   using `src/privacy.html`.
-3. `npm run package` → upload `dist/pagesift-1.0.0.zip`.
-4. Paste the listing text, permission justifications and data-use answers from
-   [`store/listing.md`](store/listing.md); upload `store/icon-store-128.png`, the three 1280×800
-   screenshots and the 440×280 promo tile.
-5. Submit for review (often a few days). The permissions are minimal and the "website content" data
-   use is declared up front. Consider **Unlisted** first and share the link from the Fiverr gig.
-6. Optional: a public GitHub repo (the CI workflow in `.github/workflows/tests.yml` is ready), and
-   a real end-to-end check with a funded API key before launch (only the invalid-key path has been
-   exercised against a live API).
+Still worth doing before a public (listed) launch: a real end-to-end run with a funded API key (only
+the invalid-key path has been exercised against a live API).
 
 ## About the screenshots
 

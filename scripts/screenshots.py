@@ -18,10 +18,10 @@ ROOT = Path(__file__).resolve().parent.parent
 CHROME = os.environ.get("CHROME", "google-chrome")
 
 SHOTS = [
-    ("scene.html?kind=extract", "store/screenshot-1-extract.png", 1280, 800),
-    ("scene.html?kind=summary", "store/screenshot-2-summary.png", 1280, 800),
-    ("scene.html?kind=settings", "store/screenshot-3-settings.png", 1280, 800),
-    ("promo.html", "store/promo-small-440x280.png", 440, 280),
+    ("scene.html?kind=extract", "store-submission/screenshot-1-extract.png", 1280, 800),
+    ("scene.html?kind=summary", "store-submission/screenshot-2-summary.png", 1280, 800),
+    ("scene.html?kind=settings", "store-submission/screenshot-3-settings.png", 1280, 800),
+    ("promo.html", "store-submission/promo-small-440x280.png", 440, 280),
 ]
 
 

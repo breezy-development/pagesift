@@ -1,4 +1,4 @@
-"""Render src/icons/icon{16,32,48,128}.png and store/icon-store-128.png. Needs Pillow."""
+"""Render src/icons/icon{16,32,48,128}.png and store-submission/icon-store-128.png. Needs Pillow."""
 from pathlib import Path
 
 from PIL import Image, ImageDraw
@@ -61,7 +61,7 @@ def main() -> None:
     for size in (16, 32, 48, 128):
         src = simple if size <= 32 else detailed
         src.resize((size, size), Image.LANCZOS).save(out / f"icon{size}.png", optimize=True)
-    store = ROOT / "store"
+    store = ROOT / "store-submission"
     store.mkdir(exist_ok=True)
     # CWS store icon: 128x128 with the artwork inside a 96x96 area.
     canvas = Image.new("RGBA", (128, 128), (0, 0, 0, 0))
